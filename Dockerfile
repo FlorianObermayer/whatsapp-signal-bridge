@@ -2,13 +2,10 @@ FROM golang AS build
 
 WORKDIR /app/whatsapp-signal-bridge
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
-
 COPY * .
 
-RUN go build -o /bot
+RUN go mod download
+RUN go build -o bot
 
 FROM ubuntu:jammy
 
