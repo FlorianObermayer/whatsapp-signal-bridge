@@ -7,6 +7,7 @@ import (
 	"github.com/whatsapp-signal-bridge/bridge"
 	"github.com/whatsapp-signal-bridge/signal"
 	"github.com/whatsapp-signal-bridge/whatsapp"
+	"github.com/whatsapp-signal-bridge/whatsmeow"
 )
 
 func main() {
@@ -30,6 +31,10 @@ func main() {
 	})
 
 	go whatsapp.StartClient(whatsapp.WhatsappClientOptions{
+		Queue: queue,
+	})
+
+	go whatsmeow.StartClient(whatsmeow.WhatsmeowClientOptions{
 		Queue: queue,
 	})
 
